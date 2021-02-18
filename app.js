@@ -14,7 +14,7 @@ bot.on('ready', (message) => {
   console.log('on!')
   const stream = Twitter.stream('statuses/filter', { follow: '3444040513' })
   stream.on('tweet', function (tweet) {
-    //console.log(`https://www.twitter.com/${tweet.user.screen_name}/status/${tweet.id}`);
+    //`https://www.twitter.com/${tweet.user.screen_name}/status/${tweet.id}`
     // if link dont show up on preview, try using www infront instead
 
     let news = `https://twitter.com/${tweet.user.screen_name}/status/${tweet.id_str}`
