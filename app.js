@@ -16,15 +16,15 @@ bot.on('ready', (message) => {
   stream.on('tweet', function (tweet) {
     //console.log(`https://www.twitter.com/${tweet.user.screen_name}/status/${tweet.id}`);
     // if link dont show up on preview, try using www infront instead
-    let news = `https://twitter.com/${tweet.user.screen_name}/status/${tweet.id}`
-    bot.channels.cache.get('627344566562848805').send(news);
+
+    let news = `https://twitter.com/${tweet.user.screen_name}/status/${tweet.id_str}`
+    if (tweet.user.screen_name === 'FantasyLabsNBA') {
+      //console.log(tweet)
+      bot.channels.cache.get('627344566562848805').send(news);
+    }
   });
 });
 
-// poll nbafantasylabs twitter every 1 sec and post the most recent tweet
-
-
-//TODO: change this to use configs.token in the future
 bot.login(process.env.bots_token);
 
 //process.env.API_KEY, process.env.API_SECRET, process.env.PASSPHRASE
