@@ -17,11 +17,21 @@ bot.on('ready', (message) => {
     //`https://www.twitter.com/${tweet.user.screen_name}/status/${tweet.id}`
     // if link dont show up on preview, try using www infront instead
 
-    let news = `https://twitter.com/${tweet.user.screen_name}/status/${tweet.id_str}`
-    // check if tweet has @
-    if (tweet.user.screen_name === 'Underdog__NBA') {
+    let update = `https://twitter.com/${tweet.user.screen_name}/status/${tweet.id_str}`
+    //in_reply_to_screen_name: 'GangGreenNYK'
+    //in_reply_to_user_id: 994213352535621600
+    //in_reply_to_status_id: 1450617597502894000
+    //in_reply_to_user_id: null
+    //in_reply_to_screen_name: null
+    //in_reply_to_status_id: null
+
+    let isReply = !(tweet.in_reply_to_user_id)
+    // check if tweet is a reply and mark it as true
+
+    //only paste tweet if its not a reply to another acct
+    if (tweet.user.screen_name === 'Underdog__NBA' && isReply) {
       console.log(tweet)
-      bot.channels.cache.get('627344566562848805').send(news);
+      bot.channels.cache.get('627344566562848805').send(update);
     }
   });
 });
