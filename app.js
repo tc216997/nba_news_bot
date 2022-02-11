@@ -17,7 +17,7 @@ bot.on('ready', (message) => {
     //`https://www.twitter.com/${tweet.user.screen_name}/status/${tweet.id}`
     // if link dont show up on preview, try using www infront instead
 
-    let update = `https://twitter.com/${tweet.user.screen_name}/status/${tweet.id_str}`
+    let update = `https://www.twitter.com/${tweet.user.screen_name}/status/${tweet.id_str}`
     //in_reply_to_screen_name: 'GangGreenNYK'
     //in_reply_to_user_id: 994213352535621600
     //in_reply_to_status_id: 1450617597502894000
